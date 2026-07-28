@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="JZG">
   <rect width="512" height="512" rx="112" fill="#050608"/>
-  <circle cx="402" cy="110" r="18" fill="#a8ff60"/>
-  <path d="M112 126h118v184c0 60-38 92-96 92-13 0-27-2-39-6v-69c9 3 17 4 24 4 22 0 34-11 34-35V194h-41z" fill="#f4f6f8"/>
-  <path d="M260 126h150v58L323 329h91v73H250v-58l88-145h-78z" fill="#f4f6f8"/>
+  <circle cx="404" cy="106" r="18" fill="#a8ff60"/>
+  <text x="256" y="304" text-anchor="middle" fill="#f4f6f8" font-family="Arial, Helvetica, sans-serif" font-size="176" font-weight="700" letter-spacing="-18">JZG</text>
 </svg>
