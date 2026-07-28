@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Joaquín Zapata observa el mundo, ordena la situación y ayuda a personas y empresas a decidir su siguiente movimiento.">
+  <meta name="theme-color" content="#f3f0e8">
+  <title>Joaquín Zapata — Criterio para un mundo difícil de interpretar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:#f3f0e8;
+      --ink:#171714;
+      --muted:#6f6b61;
+      --line:rgba(23,23,20,.18);
+      --signal:#b53a22;
+      --white:#fbfaf6;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .mono{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+    .serif{font-family:Newsreader,Georgia,serif}
+
+    .ticker{border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:var(--ink);color:var(--paper)}
+    .ticker-track{display:inline-flex;gap:3rem;padding:.7rem 0;animation:ticker 28s linear infinite}
+    .ticker span::before{content:"●";color:var(--signal);margin-right:.75rem}
+    @keyframes ticker{to{transform:translateX(-50%)}}
+
+    header{position:sticky;top:0;z-index:20;background:rgba(243,240,232,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+    .brand{font:600 1rem "DM Mono",monospace;letter-spacing:.04em}
+    .navlinks{display:flex;align-items:center;gap:1.4rem;font-size:.82rem}
+    .navlinks a:not(.button):hover{opacity:.55}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border:1px solid var(--ink);padding:.8rem 1rem;font:500 .75rem "DM Mono",monospace;text-transform:uppercase;letter-spacing:.06em;transition:.2s;background:transparent}
+    .button:hover{background:var(--ink);color:var(--paper)}
+    .button.fill{background:var(--ink);color:var(--paper)}
+    .button.fill:hover{background:var(--signal);border-color:var(--signal)}
+
+    .hero{min-height:calc(100vh - 105px);display:grid;grid-template-columns:1.7fr .8fr;gap:5rem;align-items:end;padding:8rem 0 4rem}
+    .eyebrow{display:flex;align-items:center;gap:.8rem;color:var(--muted);margin-bottom:2rem}
+    .dot{width:9px;height:9px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 6px rgba(181,58,34,.12)}
+    h1{font:500 clamp(4rem,9.5vw,9.5rem)/.83 Newsreader,Georgia,serif;letter-spacing:-.065em;margin:0;max-width:980px}
+    h1 em{font-weight:400;color:var(--signal)}
+    .hero-copy{max-width:510px;font-size:1.15rem;margin:2.5rem 0 0;color:#34332f}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+    .hero-side{border-left:1px solid var(--line);padding-left:2rem;padding-bottom:.7rem}
+    .hero-side p{margin:.4rem 0 2rem;font:400 2rem/1.05 Newsreader,serif}
+    .hero-side small{color:var(--muted)}
+
+    section{padding:7rem 0;border-top:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:.6fr 1.4fr;gap:3rem;margin-bottom:4rem}
+    .section-head h2{font:500 clamp(2.6rem,5vw,5.4rem)/.94 Newsreader,serif;letter-spacing:-.04em;margin:0}
+    .section-head p{max-width:580px;margin:0;color:var(--muted);font-size:1.05rem}
+
+    .dispatch{display:grid;grid-template-columns:.7fr 1.5fr;gap:4rem}
+    .dispatch-meta{position:sticky;top:110px;align-self:start}
+    .dispatch-meta .date{font:500 2.1rem/1 Newsreader,serif;margin:.7rem 0}
+    .dispatch article{max-width:760px}
+    .dispatch article h3{font:500 clamp(2.6rem,5.5vw,5.8rem)/.94 Newsreader,serif;letter-spacing:-.045em;margin:0 0 2rem}
+    .dispatch article p{font:400 clamp(1.25rem,2vw,1.55rem)/1.5 Newsreader,serif;margin:0 0 1.3rem}
+    .dispatch .lead:first-letter{float:left;font-size:5.2rem;line-height:.7;padding:.2rem .6rem 0 0;color:var(--signal)}
+    .quote{border-left:3px solid var(--signal);padding:1rem 0 1rem 1.5rem;margin:2.5rem 0;font:500 2rem/1.15 Newsreader,serif!important}
+
+    .indices{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+    .index{padding:2rem 1.5rem 2.5rem;border-right:1px solid var(--line)}
+    .index:last-child{border-right:0}
+    .score{font:400 clamp(4.8rem,9vw,8rem)/1 Newsreader,serif;letter-spacing:-.06em;margin:1.8rem 0 .3rem}
+    .score span{font-size:1rem;letter-spacing:0;color:var(--muted)}
+    .bar{height:3px;background:rgba(23,23,20,.13);margin:1rem 0 1.4rem;position:relative}
+    .bar i{display:block;height:100%;background:var(--signal);width:var(--value)}
+    .index p{color:var(--muted);font-size:.9rem;max-width:280px}
+
+    .today{display:grid;grid-template-columns:.45fr 1.55fr;border:1px solid var(--ink)}
+    .today-title{padding:2rem;background:var(--ink);color:var(--paper)}
+    .today-title h2{font:500 3.6rem/1 Newsreader,serif;margin:.7rem 0}
+    .today-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .today-item{padding:2rem;border-right:1px solid var(--line)}
+    .today-item:last-child{border:0}
+    .today-item h3{font:500 1.55rem Newsreader,serif;margin:.8rem 0}
+    .today-item p{color:var(--muted);font-size:.95rem}
+
+    .sessions{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .session{min-height:500px;border:1px solid var(--ink);padding:1.8rem;display:flex;flex-direction:column;transition:.25s;background:transparent}
+    .session:hover{transform:translateY(-7px);background:var(--white);box-shadow:0 18px 45px rgba(23,23,20,.08)}
+    .session .number{color:var(--signal)}
+    .session h3{font:500 2.5rem/1 Newsreader,serif;margin:2rem 0 .7rem}
+    .session .subtitle{min-height:50px;color:var(--muted)}
+    .session ul{list-style:none;padding:0;margin:2rem 0}
+    .session li{border-top:1px solid var(--line);padding:.55rem 0;font-size:.88rem}
+    .session footer{margin-top:auto;border-top:1px solid var(--ink);padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .price{font:500 1.5rem Newsreader,serif}
+
+    .authority{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+    .authority h2{font:500 clamp(3.2rem,6vw,6.3rem)/.9 Newsreader,serif;letter-spacing:-.045em;margin:0}
+    .authority-copy{font-size:1.07rem;color:#383630}
+    .credentials{margin-top:2.5rem;border-top:1px solid var(--ink)}
+    .credential{display:flex;justify-content:space-between;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.86rem}
+
+    .contact{background:var(--signal);color:var(--white);text-align:center;padding:8rem 0}
+    .contact .mono{opacity:.75}
+    .contact h2{font:500 clamp(4rem,9vw,9rem)/.86 Newsreader,serif;letter-spacing:-.055em;margin:1.5rem auto 2rem;max-width:1050px}
+    .contact p{max-width:590px;margin:0 auto 2.5rem;font-size:1.1rem}
+    .contact .button{border-color:var(--white);color:var(--white);padding:1.1rem 1.5rem}
+    .contact .button:hover{background:var(--white);color:var(--signal)}
+
+    .site-footer{padding:2rem 0 3rem;border-top:1px solid rgba(255,255,255,.2);background:var(--signal);color:var(--white)}
+    .footer-row{display:flex;justify-content:space-between;gap:2rem;align-items:flex-end}
+    .footer-links{display:flex;flex-wrap:wrap;gap:1rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+    .fine{font-size:.7rem;opacity:.7;max-width:500px}
+
+    @media(max-width:850px){
+      .navlinks a:not(.button){display:none}
+      .hero{grid-template-columns:1fr;gap:3rem;padding-top:5rem}
+      .hero-side{border-left:0;border-top:1px solid var(--line);padding:2rem 0 0}
+      .section-head,.dispatch,.authority{grid-template-columns:1fr;gap:2rem}
+      .dispatch-meta{position:static}
+      .indices,.sessions{grid-template-columns:1fr}
+      .index{border-right:0;border-bottom:1px solid var(--line)}
+      .index:last-child{border-bottom:0}
+      .today{grid-template-columns:1fr}
+      .today-grid{grid-template-columns:1fr}
+      .today-item{border-right:0;border-bottom:1px solid var(--line)}
+      .session{min-height:auto}
+    }
+    @media(max-width:520px){
+      .wrap{width:min(calc(100% - 24px),var(--max))}
+      nav{height:62px}
+      .brand{font-size:.83rem}
+      .button{padding:.72rem .75rem}
+      .hero{min-height:auto;padding:4.5rem 0 3rem}
+      h1{font-size:4rem}
+      section{padding:4.5rem 0}
+      .section-head{margin-bottom:2.5rem}
+      .footer-row{display:block}
+      .footer-links{margin-bottom:2rem}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}.session{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="ticker" aria-label="Indicadores de situación">
+    <div class="ticker-track mono">
+      <span>Palma · 28 julio 2026</span><span>Presión del mundo 78</span><span>Margen personal 46</span><span>Oportunidad 71</span><span>Señal: vigilancia activa</span>
+      <span aria-hidden="true">Palma · 28 julio 2026</span><span aria-hidden="true">Presión del mundo 78</span><span aria-hidden="true">Margen personal 46</span><span aria-hidden="true">Oportunidad 71</span><span aria-hidden="true">Señal: vigilancia activa</span>
+    </div>
+  </div>
+
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#inicio">JOAQUÍN ZAPATA</a>
+      <div class="navlinks">
+        <a href="#parte">Parte de situación</a>
+        <a href="#indices">Índices</a>
+        <a href="#sesiones">Sesiones</a>
+        <a href="#contacto" class="button fill">WhatsApp ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <div class="hero wrap">
+      <div>
+        <div class="eyebrow mono"><i class="dot"></i> Despacho editorial · Palma</div>
+        <h1>Comprender.<br>Colocarse.<br><em>Avanzar.</em></h1>
+        <p class="hero-copy">Observo la evolución del mundo, ordeno la situación y trabajo con personas y empresas que necesitan decidir su siguiente movimiento.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="button fill">Hablar con Joaquín ↗</a>
+          <a href="#parte" class="button">Leer la señal de hoy ↓</a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <div class="mono">Idea central</div>
+        <p class="serif">No se trata de predecir el mundo. Se trata de no quedar mal colocado dentro de él.</p>
+        <small>CRITERIO JISR · HORIZONTE, RIESGO Y PLAN</small>
+      </aside>
+    </div>
+
+    <section id="parte">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="mono">01 · Parte de situación</div>
+          <div>
+            <h2>Una lectura breve para empezar el día menos desarmado.</h2>
+          </div>
+        </div>
+
+        <div class="dispatch">
+          <aside class="dispatch-meta">
+            <div class="mono">Edición 001</div>
+            <div class="date">28.07.2026</div>
+            <div class="mono">Tiempo de lectura · 2 min</div>
+          </aside>
+          <article>
+            <h3>El mundo no se ha vuelto incomprensible. Se ha vuelto caro de ignorar.</h3>
+            <p class="lead">Durante años hemos confundido estabilidad con ausencia de movimiento. Mientras las pantallas prometían comodidad, aumentaban silenciosamente nuestras dependencias: de una plataforma, de un cliente, de una fuente de ingresos, de una tecnología que nadie controla por completo.</p>
+            <p>La cuestión ya no es adivinar qué crisis llegará después. La cuestión es comprobar cuánto margen conservamos cuando cambian las reglas. Quien posee margen puede esperar, elegir y negociar. Quien no lo tiene convierte cualquier sorpresa en una urgencia.</p>
+            <p>Por eso conviene mirar menos el ruido general y más la posición propia: caja, tiempo, capacidades, relaciones, reputación y algo que pueda ofrecerse sin pedir permiso a un algoritmo.</p>
+            <p class="quote">El futuro favorece menos al que lo predice que al que conserva capacidad de movimiento.</p>
+            <p>Hoy no hace falta rehacer la vida. Basta con localizar una dependencia excesiva y empezar a construir una alternativa. La estrategia suele comenzar con algo bastante menos heroico que una gran decisión: una pequeña salida de emergencia.</p>
+            <a href="#contacto" class="button">Aplicarlo a mi situación ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="indices">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="mono">02 · Indicadores JISR</div>
+          <div>
+            <h2>El termómetro no decide por ti. Pero evita salir en enero vestido de agosto.</h2>
+            <p>Indicadores editoriales para resumir la presión del entorno, el margen disponible y la aparición de oportunidades.</p>
+          </div>
+        </div>
+
+        <div class="indices">
+          <article class="index">
+            <div class="mono">Presión del mundo</div>
+            <div class="score">78 <span>/ 100</span></div>
+            <div class="bar" style="--value:78%"><i></i></div>
+            <strong>ALTA</strong>
+            <p>El entorno exige atención: más fricción, más dependencia y menos margen para decisiones improvisadas.</p>
+          </article>
+          <article class="index">
+            <div class="mono">Margen personal</div>
+            <div class="score">46 <span>/ 100</span></div>
+            <div class="bar" style="--value:46%"><i></i></div>
+            <strong>LIMITADO</strong>
+            <p>Conviene proteger caja, tiempo propio y capacidad para construir alternativas antes de necesitarlas.</p>
+          </article>
+          <article class="index">
+            <div class="mono">Oportunidad</div>
+            <div class="score">71 <span>/ 100</span></div>
+            <div class="bar" style="--value:71%"><i></i></div>
+            <strong>ELEVADA</strong>
+            <p>Los cambios abren espacio para quien convierte conocimiento disperso en una oferta clara y útil.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="today">
+          <div class="today-title">
+            <div class="mono">Aplicación inmediata</div>
+            <h2>Para hoy</h2>
+          </div>
+          <div class="today-grid">
+            <article class="today-item">
+              <div class="mono">Observa</div>
+              <h3>Tu dependencia principal</h3>
+              <p>Localiza qué cliente, plataforma o ingreso podría alterar demasiado tu posición si desapareciera.</p>
+            </article>
+            <article class="today-item">
+              <div class="mono">Protege</div>
+              <h3>Tu tiempo soberano</h3>
+              <p>Reserva un bloque semanal que no pertenezca a las urgencias de otros ni a la administración del presente.</p>
+            </article>
+            <article class="today-item">
+              <div class="mono">Avanza</div>
+              <h3>Una oferta explicable</h3>
+              <p>Define algo útil que puedas ofrecer en una frase, a una persona concreta y con un precio comprensible.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sesiones">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="mono">03 · Trabajar juntos</div>
+          <div>
+            <h2>Tres sesiones. Una secuencia: situación, posición y oferta.</h2>
+            <p>No necesitas diagnosticarte antes de escribir. Cuéntame qué estás intentando resolver y veremos cuál es la puerta correcta.</p>
+          </div>
+        </div>
+
+        <div class="sessions">
+          <article class="session">
+            <div class="number mono">01 · Sesión de situación</div>
+            <h3>Entender qué está ocurriendo.</h3>
+            <p class="subtitle">Para ordenar una situación compleja, separar riesgo de ruido y recuperar perspectiva.</p>
+            <ul>
+              <li>Lectura del momento</li>
+              <li>Riesgos reales y aparentes</li>
+              <li>Recursos y dependencias</li>
+              <li>Próximas señales a vigilar</li>
+            </ul>
+            <footer><span class="price">75 min · 150 €</span><a href="#contacto" aria-label="Contar mi situación">↗</a></footer>
+          </article>
+
+          <article class="session">
+            <div class="number mono">02 · Sesión de posición</div>
+            <h3>Decidir dónde colocarse.</h3>
+            <p class="subtitle">Para elegir entre alternativas, reducir exposición y definir el siguiente movimiento.</p>
+            <ul>
+              <li>Horizonte y objetivos</li>
+              <li>Exposición al riesgo</li>
+              <li>Escenarios posibles</li>
+              <li>Decisión y plan inmediato</li>
+            </ul>
+            <footer><span class="price">75 min · 150 €</span><a href="#contacto" aria-label="Revisar mi posición">↗</a></footer>
+          </article>
+
+          <article class="session">
+            <div class="number mono">03 · Sesión de oferta</div>
+            <h3>Convertir lo que sabes en algo vendible.</h3>
+            <p class="subtitle">Para profesionales y creadores con experiencia, talento o conocimiento, pero sin una oferta clara.</p>
+            <ul>
+              <li>Valor que puedes ofrecer</li>
+              <li>Persona a la que ayudas</li>
+              <li>Problema y resultado</li>
+              <li>Mensaje, formato y precio</li>
+            </ul>
+            <footer><span class="price">75 min · 150 €</span><a href="#contacto" aria-label="Construir mi oferta">↗</a></footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap authority">
+        <h2>Una mirada construida en territorios distintos.</h2>
+        <div class="authority-copy">
+          <p>Escribo, analizo mercados, construyo proyectos y ayudo a otras personas a ordenar los suyos. No porque todo sea lo mismo, sino porque en todos esos territorios aparece la misma pregunta: <strong>qué está ocurriendo y cómo conviene colocarse.</strong></p>
+          <div class="credentials">
+            <div class="credential"><span>Columnista</span><strong>La Razón</strong></div>
+            <div class="credential"><span>Método propio</span><strong>JZG / JISR</strong></div>
+            <div class="credential"><span>Universo editorial</span><strong>PANGEA 2030</strong></div>
+            <div class="credential"><span>Mercados y criterio</span><strong>Bolsa15</strong></div>
+            <div class="credential"><span>Libros y proyectos culturales</span><strong>Autor y creador</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="wrap">
+        <div class="mono">La puerta de entrada</div>
+        <h2>Cuéntame qué estás intentando resolver.</h2>
+        <p>No necesitas saber qué sesión necesitas. Escríbeme brevemente qué está ocurriendo y te diré con honestidad si creo que puedo ayudarte.</p>
+        <a id="whatsapp" class="button" href="https://wa.me/?text=Hola%2C%20Joaqu%C3%ADn.%20He%20llegado%20desde%20tu%20web%20y%20me%20gustar%C3%ADa%20contarte%20una%20situaci%C3%B3n." target="_blank" rel="noopener">Abrir WhatsApp ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <div class="footer-links">
+        <a href="#parte">Parte de situación</a><a href="#indices">Índices</a><a href="#sesiones">Sesiones</a><a href="mailto:hola@joaquinzapata.com">Email</a>
+      </div>
+      <div class="fine">© <span id="year">2026</span> Joaquín Zapata · Indicadores editoriales JISR. Las lecturas publicadas no constituyen asesoramiento financiero, legal ni profesional individualizado.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // CONFIGURACIÓN: añade el número de WhatsApp con prefijo internacional, sin + ni espacios.
+    // Ejemplo España: const whatsappNumber = '34600111222';
+    const whatsappNumber = '';
+    const message = 'Hola, Joaquín. He llegado desde tu web y me gustaría contarte una situación.';
+    const link = document.getElementById('whatsapp');
+    if (whatsappNumber) link.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  </script>
+</body>
+</html>
