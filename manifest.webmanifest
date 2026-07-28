@@ -1,0 +1,19 @@
+{
+  "name": "Joaquín Zapata · Parte de Situación",
+  "short_name": "JZ · Situación",
+  "description": "Criterio, índices y sesiones para comprender, posicionarse y avanzar.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050608",
+  "theme_color": "#050608",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
